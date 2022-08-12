@@ -19,8 +19,6 @@ func (s *StateStore) Init(metadata state.Metadata) error {
 		err error
 	)
 	s.logger.Infof("Metadata: %v", metadata)
-
-	s.pemFilePath = "../../../../dev-wallet-0.pem" // TODO Config
 	s.accountStorage, err = elrond.InitAccountStorage(s.pemFilePath)
 	if err != nil {
 		return err
@@ -41,4 +39,14 @@ func (s *StateStore) Get(req *state.GetRequest) (*state.GetResponse, error) {
 	}
 	res.Data = []byte(value)
 	return res, nil
+}
+
+func NewAccountStorage(logger logger.Logger) *StateStore {
+	return &StateStore{
+		DefaultBulkStore: state.DefaultBulkStore{},
+		accountStorage:   &elrond.AccountStorage{},
+		pemFilePath:      "../../../../dev-wallet-0.pem", // TODO Config
+		features:         nil,
+		logger:           logger,
+	}
 }

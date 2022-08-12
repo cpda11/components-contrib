@@ -10,12 +10,7 @@ import (
 func TestStateStore_Init(t *testing.T) {
 	m := state.Metadata{}
 	t.Run("Init", func(t *testing.T) {
-		as := &StateStore{
-			DefaultBulkStore: state.DefaultBulkStore{},
-			accountStorage:   nil,
-			features:         nil,
-			logger:           logger.NewLogger("testing"),
-		}
+		as := NewAccountStorage(logger.NewLogger("testing"))
 		err := as.Init(m)
 		assert.Nil(t, err)
 	})
@@ -24,12 +19,7 @@ func TestStateStore_Init(t *testing.T) {
 func TestStateStore_Get(t *testing.T) {
 	m := state.Metadata{}
 	t.Run("Get value", func(t *testing.T) {
-		as := &StateStore{
-			DefaultBulkStore: state.DefaultBulkStore{},
-			accountStorage:   nil,
-			features:         nil,
-			logger:           logger.NewLogger("testing"),
-		}
+		as := NewAccountStorage(logger.NewLogger("testing"))
 		err := as.Init(m)
 		assert.Nil(t, err)
 		err = nil
