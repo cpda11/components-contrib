@@ -41,6 +41,16 @@ func (s *StateStore) Get(req *state.GetRequest) (*state.GetResponse, error) {
 	return res, nil
 }
 
+func (s *StateStore) Set(req *state.SetRequest) error {
+	// TODO implement
+	return nil
+}
+
+func (s *StateStore) Delete(req *state.DeleteRequest) error {
+	// TODO implement
+	return nil
+}
+
 func NewAccountStorage(logger logger.Logger) *StateStore {
 	return &StateStore{
 		DefaultBulkStore: state.DefaultBulkStore{},
