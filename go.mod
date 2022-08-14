@@ -161,7 +161,7 @@ require (
 	github.com/Azure/azure-sdk-for-go/sdk/data/azappconfig v0.4.0
 	github.com/aliyun/aliyun-log-go-sdk v0.1.37
 	github.com/apache/dubbo-go-hessian2 v1.11.0
-	github.com/cpda11/dapr-elrond v0.0.0-00010101000000-000000000000
+	github.com/cpda11/dapr-elrond v0.0.1
 	github.com/huaweicloud/huaweicloud-sdk-go-obs v3.21.12+incompatible
 	github.com/huaweicloud/huaweicloud-sdk-go-v3 v0.0.87
 	github.com/ipfs/go-ipfs-files v0.1.1
@@ -567,7 +567,9 @@ replace go.opencensus.io => go.opencensus.io v0.23.0
 
 replace github.com/toolkits/concurrent => github.com/niean/gotools v0.0.0-20151221085310-ff3f51fc5c60
 
-replace github.com/cpda11/dapr-elrond => ../
+replace github.com/cpda11/dapr-elrond v0.0.1 => ../
+
+replace github.com/ElrondNetwork/elrond-sdk-erdgo v1.0.23 => ../elrond-sdk-erdgo
 
 // TODO Workaround from https://github.com/ElrondNetwork/elrond-sdk-erdgo/blob/main/go.mod
 replace github.com/ElrondNetwork/arwen-wasm-vm/v1_2 v1.2.35 => github.com/ElrondNetwork/arwen-wasm-vm v1.2.35

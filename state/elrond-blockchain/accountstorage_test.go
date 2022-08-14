@@ -7,20 +7,27 @@ import (
 	"testing"
 )
 
+const defaultPemFilePath = "../../../../dev-wallet-0.pem"
+
+var metadata = state.Metadata{
+	Properties: map[string]string{
+		"pemFilePath": defaultPemFilePath,
+	},
+}
+
 func TestStateStore_Init(t *testing.T) {
-	m := state.Metadata{}
 	t.Run("Init", func(t *testing.T) {
 		as := NewAccountStorage(logger.NewLogger("testing"))
-		err := as.Init(m)
+		err := as.Init(metadata)
 		assert.Nil(t, err)
 	})
 }
 
+// TODO This is an integration test
 func TestStateStore_Get(t *testing.T) {
-	m := state.Metadata{}
 	t.Run("Get value", func(t *testing.T) {
 		as := NewAccountStorage(logger.NewLogger("testing"))
-		err := as.Init(m)
+		err := as.Init(metadata)
 		assert.Nil(t, err)
 		err = nil
 
